@@ -37,7 +37,7 @@ videoGalleryWidget.config(['$sceDelegateProvider', function($sceDelegateProvider
 videoGalleryWidget.config(['$routeProvider', function($routeProvider) {
   $routeProvider.
   when('/', {
-    templateUrl: '/partials/videos.html',
+    templateUrl: 'partials/videos.html',
     controller: 'galleryCtrl',
     controllerAs: 'gallery',
     resolve: {
@@ -47,7 +47,7 @@ videoGalleryWidget.config(['$routeProvider', function($routeProvider) {
     }
   }).
   when('/v/:videoId', {
-    templateUrl: '/partials/videos.html',
+    templateUrl: 'partials/videos.html',
     controller: 'galleryCtrl',
     controllerAs: 'gallery',
     resolve: {
