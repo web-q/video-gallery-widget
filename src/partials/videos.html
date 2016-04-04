@@ -18,7 +18,7 @@
   <ul class="webq-vg-listing">
     <li class="webq-vg-item" data-ng-repeat="v in gallery.youtubeData.items as results">
       <div class="webq-vg-item-inner">
-        <a data-ng-click="gallery.videoId = v.snippet.resourceId.videoId; gallery.current = v.webq;">
+        <a data-ng-click="gallery.videoId = v.snippet.resourceId.videoId; gallery.current = v.webq; gallery.scrollToPlayer()">
           <div class="webq-vg-thumbwrap">
             <img class="webq-vg-vidthumb" src="{{v.snippet.thumbnails.high.url}}" height="{{v.snippet.thumbnails.high.height}}" width="{{v.snippet.thumbnails.high.width}}" alt="" />
           </div>
