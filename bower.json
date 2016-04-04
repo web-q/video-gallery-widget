@@ -1,0 +1,20 @@
+{
+  "name": "video-gallery-widget",
+  "description": "A video gallery widget built with angular.js",
+  "version": "0.0.1",
+  "homepage": "https://github.com/web-q/video-gallery-widget",
+  "license": "GPL",
+  "private": true,
+  "dependencies": {
+    "angular": "~1.5.3",
+    "angular-route": "~1.5.3",
+    "angular-animate": "~1.5.3",
+    "angular-filter": "~0.5.8",
+    "html5-boilerplate": "~5.3.0",
+    "ng-onload": "~0.2.1",
+    "gsap": "~1.18.2",
+    "angular-ellipsis": "~0.1.6",
+    "video.js": "~5.8.7",
+    "videojs-youtube": "~2.0.8"
+  }
+}

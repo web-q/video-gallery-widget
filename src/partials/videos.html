@@ -1,0 +1,32 @@
+<section id="webq-vg-top">
+  <div class="webq-vg-phy">
+    <div class="webq-phy-photo-wrapper">
+      <div class="webq-vg-phy-photo">
+        <img src="{{gallery.current.phyPhoto}}" alt="" />
+      </div>
+    </div>
+    <h3>{{gallery.current.phyName}}</h3>
+    <h4>{{gallery.current.phySpecialties}}</h4>
+    <a class="btn btn-primary" href="{{gallery.current.phyURL}}"><i class="icon-user-md"></i> View Profile</a>
+  </div>
+  <div class="webq-vg-player">
+    <youtube class="webq-vg-embed" width="640" height="390" videoid="{{gallery.videoId}}"></youtube>
+    <p>{{gallery.current.question}}</p>
+  </div>
+</section>
+<section id="webq-vg-bottom">
+  <ul class="webq-vg-listing">
+    <li class="webq-vg-item" data-ng-repeat="v in gallery.youtubeData.items as results">
+      <div class="webq-vg-item-inner">
+        <a data-ng-click="gallery.videoId = v.snippet.resourceId.videoId; gallery.current = v.webq;">
+          <div class="webq-vg-thumbwrap">
+            <img class="webq-vg-vidthumb" src="{{v.snippet.thumbnails.high.url}}" height="{{v.snippet.thumbnails.high.height}}" width="{{v.snippet.thumbnails.high.width}}" alt="" />
+          </div>
+        </a>
+        <p class="webq-vg-question-sm" data-ng-bind='v.webq.question' data-ellipsis></p>
+      </div>
+    </li>
+  </ul>
+  <button ng-if="gallery.youtubeData.prevPageToken" ng-click='gallery.prev()'>Previous</button>
+  <button ng-if="gallery.youtubeData.nextPageToken" ng-click='gallery.next()'>Next</button>
+</section>
