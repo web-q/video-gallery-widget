@@ -128,7 +128,7 @@ videoGalleryWidget.service('youtubeService', function($http, $q) {
 /********************************
 -----------CONTROLLERS-----------
 ********************************/
-videoGalleryWidget.controller('galleryCtrl', ['$routeParams', 'youtubeData', 'youtubeService', function($routeParams, youtubeData, youtubeService) {
+videoGalleryWidget.controller('galleryCtrl', ['$routeParams', '$location', '$anchorScroll', 'youtubeData', 'youtubeService', function($routeParams, $location, $anchorScroll, youtubeData, youtubeService) {
 // Access 'Controller As' in deeper functions
 var ctrl = this;
 
@@ -145,6 +145,19 @@ if($routeParams.videoId){
 
 // Pass data to 'Contoller As'
 ctrl.youtubeData = youtubeData;
+
+
+ctrl.scrollToPlayer = function() {
+  var old = $location.hash();
+  // set the location.hash to the id of
+  // the element you wish to scroll to.
+  $location.hash('webq-vg-top');
+
+  // call $anchorScroll()
+  $anchorScroll();
+  $location.hash(old);
+  $location.search('webq-vg-top', null)
+};
 
 // Next/Prev API calls
 ctrl.next = function(){

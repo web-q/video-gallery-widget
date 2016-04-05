@@ -18,8 +18,14 @@
   <ul class="webq-vg-listing">
     <li class="webq-vg-item" data-ng-repeat="v in gallery.youtubeData.items as results">
       <div class="webq-vg-item-inner">
-        <a data-ng-click="gallery.videoId = v.snippet.resourceId.videoId; gallery.current = v.webq;">
+        <a data-ng-click="gallery.videoId = v.snippet.resourceId.videoId; gallery.current = v.webq; gallery.scrollToPlayer()">
           <div class="webq-vg-thumbwrap">
+            <div class="webq-vg-overlay">
+            <svg class="webq-vg-play" xmlns="http://www.w3.org/2000/svg" viewBox="-25 -25 50 50">
+              <circle class="webq-vg-play-cicle" cx="0" cy="0" r="24"></circle>
+              <text class="webq-vg-play-arrow" x="-9" y="11" font-size="30">&#xe84c;</text>
+            </svg>
+            </div>
             <img class="webq-vg-vidthumb" src="{{v.snippet.thumbnails.high.url}}" height="{{v.snippet.thumbnails.high.height}}" width="{{v.snippet.thumbnails.high.width}}" alt="" />
           </div>
         </a>
