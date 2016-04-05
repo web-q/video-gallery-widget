@@ -34,8 +34,6 @@
   }
 }
 .webq-vg-overlay {
-  background-color: #000;
-  opacity: 0.65;
   position: absolute;
   top:0;
   z-index: 1;
@@ -44,9 +42,21 @@
   text-align: center;
   vertical-align: middle;
 }
+.webq-vg-overlay-screen {
+  background-color: #000;
+  opacity: 0.5;
+  position: absolute;
+  top:0;
+  height: 100%;
+  width: 100%;
+}
 .webq-vg-play {
-  margin-top:15%;
-  height: 60%;
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  left: 27%;
+  margin-top:14%;
+  width: 46%;
 }
 .webq-vg-overlay {
   .webq-vg-play-cicle {
@@ -63,7 +73,7 @@
     font-style: normal;
     fill: #fff;
     transform: scale(0.8);
-    transition: all 0.2s ease-out;
+    transition: all 0.3s cubic-bezier(0.81, -0.92, 0.59, 1.81);
   }
 }
 .webq-vg-overlay:hover {
@@ -74,7 +84,7 @@
   }
   .webq-vg-play-arrow {
     transform: scale(1.2);
-    transition: all 0.2s ease-in;
+    transition: all 0.3s cubic-bezier(0.81, -0.92, 0.59, 1.81);
   }
 }
 .webq-phy-photo-wrapper {
@@ -97,6 +107,16 @@
     width: 100%;
     height: 100%;
     border: 0;
+  }
+}
+.webq-vg-player-overlay {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  z-index: 1;
+  .webq-vg-play {
+    margin-top: 5%;
   }
 }
 .webq-vg-listing {
