@@ -33,6 +33,50 @@
     width: 100%;
   }
 }
+.webq-vg-overlay {
+  background-color: #000;
+  opacity: 0.65;
+  position: absolute;
+  top:0;
+  z-index: 1;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  vertical-align: middle;
+}
+.webq-vg-play {
+  margin-top:5%;
+  height: 80%;
+}
+.webq-vg-overlay {
+  .webq-vg-play-cicle {
+    stroke: #FFF;
+    stroke-width: 0.5;
+    stroke-linecap: butt;
+    stroke-dasharray: 360;
+    stroke-dashoffset: 200;
+    fill: none;
+    transition: all 0.2s ease-out;
+  }
+  .webq-vg-play-arrow {
+    font-family: 'fontawesomer';
+    font-style: normal;
+    fill: #fff;
+    transform: scale(0.8);
+    transition: all 0.2s ease-out;
+  }
+}
+.webq-vg-overlay:hover {
+  .webq-vg-play-cicle {
+    transform: rotate(-120deg);
+    stroke-dashoffset: 360;
+    transition: all 0.3s ease-in;
+  }
+  .webq-vg-play-arrow {
+    transform: scale(1.2);
+    transition: all 0.2s ease-in;
+  }
+}
 .webq-phy-photo-wrapper {
   margin: 0 auto;
   width: 100%;
