@@ -128,10 +128,10 @@ videoGalleryWidget.service('youtubeService', function($http, $q) {
 /********************************
 -----------CONTROLLERS-----------
 ********************************/
-videoGalleryWidget.controller('galleryCtrl', ['$routeParams', '$location', '$anchorScroll', 'youtubeData', 'youtubeService', function($routeParams, $location, $anchorScroll, youtubeData, youtubeService) {
+videoGalleryWidget.controller('galleryCtrl', ['$routeParams', '$location', '$anchorScroll', '$scope', '$timeout', 'youtubeData', 'youtubeService', 'YT_event', function($routeParams, $location, $anchorScroll, $scope, $timeout, youtubeData, youtubeService, YT_event) {
 // Access 'Controller As' in deeper functions
 var ctrl = this;
-
+ctrl.playerStatus = 'NOTPLAYING';
 // Get video id from url, default to first video if not in url
 if($routeParams.videoId){
   ctrl.videoId = $routeParams.videoId;
@@ -146,8 +146,18 @@ if($routeParams.videoId){
 // Pass data to 'Contoller As'
 ctrl.youtubeData = youtubeData;
 
+$scope.$on(YT_event.STATUS_CHANGE, function(event, data) {
+    ctrl.playerStatus = data;
+});
 
-ctrl.scrollToPlayer = function() {
+$scope.YT_event = YT_event
+$scope.youtubeControl = function(event){
+  $scope.$broadcast(event);
+};
+$scope.playNewVideo = function(id,data) {
+  var me = this;
+  ctrl.current = data;
+  ctrl.videoId = id;
   var old = $location.hash();
   // set the location.hash to the id of
   // the element you wish to scroll to.
@@ -156,7 +166,10 @@ ctrl.scrollToPlayer = function() {
   // call $anchorScroll()
   $anchorScroll();
   $location.hash(old);
-  $location.search('webq-vg-top', null)
+  $location.search('webq-vg-top', null);
+  $timeout(function() {
+    $scope.$broadcast(YT_event.PLAY);
+  }, 0);
 };
 
 // Next/Prev API calls
@@ -202,7 +215,8 @@ videoGalleryWidget.directive('youtube', function($window, YT_event) {
             html5: 1,
             iv_load_policy: 3,
             modestbranding: 0,
-            showinfo: 0
+            showinfo: 0,
+            rel: 0
           },
 
           height: scope.height,
@@ -222,9 +236,11 @@ videoGalleryWidget.directive('youtube', function($window, YT_event) {
                   break;
                 case YT.PlayerState.ENDED:
                   message.data = "ENDED";
+                  player.seekTo(0);
+                  player.stopVideo();
                   break;
-                case YT.PlayerState.UNSTARTED:
-                  message.data = "NOT PLAYING";
+                case YT.PlayerState.CUED:
+                  message.data = "NOTPLAYING";
                   break;
                 case YT.PlayerState.PAUSED:
                   message.data = "PAUSED";
