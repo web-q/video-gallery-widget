@@ -15,13 +15,13 @@
       </youtube>
       <div ng-click="youtubeControl(YT_event.PLAY)" ng-if="gallery.playerStatus=='NOTPLAYING'||gallery.playerStatus=='ENDED'" class="webq-vg-overlay webq-vg-player-overlay">
         <div class="webq-vg-overlay-screen"></div>
-        <svg class="webq-vg-play" xmlns="http://www.w3.org/2000/svg" viewBox="-25 -25 50 50">
+        <svg class="webq-vg-play" xmlns="http://www.w3.org/2000/svg" viewBox="-30 -30 60 60">
           <circle class="webq-vg-play-cicle" cx="0" cy="0" r="24"></circle>
           <text class="webq-vg-play-arrow" x="-9" y="11" font-size="30">&#xe84c;</text>
         </svg>
       </div>
     </div>
-    <p>{{gallery.current.question}}</p>
+    <p class="webq-vg-question-lg">{{gallery.current.question}}</p>
   </div>
 </section>
 <section id="webq-vg-bottom">
@@ -32,7 +32,7 @@
           <div class="webq-vg-thumb" style="background:url('{{v.snippet.thumbnails.high.url}}') center/135% no-repeat;">
             <div class="webq-vg-overlay">
               <div class="webq-vg-overlay-screen"></div>
-              <svg class="webq-vg-play" xmlns="http://www.w3.org/2000/svg" viewBox="-25 -25 50 50">
+              <svg class="webq-vg-play" xmlns="http://www.w3.org/2000/svg" viewBox="-30 -30 60 60">
                 <circle class="webq-vg-play-cicle" cx="0" cy="0" r="24"></circle>
                 <text class="webq-vg-play-arrow" x="-9" y="11" font-size="30">&#xe84c;</text>
               </svg>
@@ -44,13 +44,12 @@
     </li>
   </ul>
   <div class="webq-vg-paging">
-    <div class="webq-vg-paging-inner">
-      <div class="webq-vg-page-prev">
-        <button class="" ng-if="gallery.youtubeData.prevPageToken" ng-click='gallery.prev()'><i class="icon-left-open"></i><span class="sr-only">Previous</span></button>
-      </div>
-      <div class="webq-vg-page-next">
-        <button class="" ng-if="gallery.youtubeData.nextPageToken" ng-click='gallery.next()'><span class="sr-only">Next</span><i class="icon-right-open"></i></button>
-      </div>
+    <div class="webq-vg-page-prev">
+      <a class="btn btn-primary" ng-if="gallery.youtubeData.prevPageToken" ng-click='gallery.prev()'><i class="icon-left-open"></i> <span>Prev</span></a>
+    </div>
+    <div class="webq-vg-page-next">
+      <a class="btn btn-primary" ng-if="gallery.youtubeData.nextPageToken" ng-click='gallery.next()'>
+        <span>Next</span> <i class="icon-right-open"></i></a>
     </div>
   </div>
 </section>
