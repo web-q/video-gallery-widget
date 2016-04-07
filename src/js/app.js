@@ -88,9 +88,9 @@ videoGalleryWidget.service('youtubeService', function($http, $q) {
     }).then(
       function success(response) {
         var data = response.data;
-        for (var i=0; i < data.items.length; i++) {
-          data.items[i].webq = webqMapVidData(data.items[i].snippet.description);
-        }
+        angular.forEach(response.data.items, function(item,key){
+          item.webq = webqMapVidData(item.snippet.description)
+        })
         d.resolve(data);
       },
       function failure(reason) {
