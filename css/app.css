@@ -71,12 +71,12 @@
     width: 46%; }
   .webq-vg-overlay .webq-vg-play-cicle {
     stroke: #FFF;
-    stroke-width: 0.5;
+    stroke-width: 0.9;
     stroke-linecap: butt;
     stroke-dasharray: 360;
     stroke-dashoffset: 200;
     fill: none;
-    transition: all 0.2s ease-out; }
+    transition: all 0.3s ease-in; }
   .webq-vg-overlay .webq-vg-play-arrow {
     font-family: 'fontawesomer';
     font-style: normal;
@@ -85,9 +85,10 @@
             transform: scale(0.8);
     transition: all 0.3s cubic-bezier(0.81, -0.92, 0.59, 1.81); }
   .webq-vg-overlay:hover .webq-vg-play-cicle {
-    -webkit-transform: rotate(-120deg);
-            transform: rotate(-120deg);
+    -webkit-transform: rotate(-200deg);
+            transform: rotate(-200deg);
     stroke-dashoffset: 360;
+    opacity: 0;
     transition: all 0.3s ease-in; }
   .webq-vg-overlay:hover .webq-vg-play-arrow {
     -webkit-transform: scale(1.2);
@@ -105,6 +106,9 @@
 .webq-vg-player-overlay .webq-vg-play {
   margin-top: 5%; }
 
+.webq-vg-player-overlay .webq-vg-play-cicle {
+  stroke-width: 0.5; }
+
 .webq-vg-listing {
   list-style: none;
   margin: 0;
@@ -113,7 +117,7 @@
   width: 100%;
   height: auto; }
 
-.webq-vg-thumbwrap {
+.webq-vg-thumb {
   position: relative;
   height: 0;
   overflow: hidden;
@@ -121,10 +125,6 @@
   padding: 0;
   padding-bottom: 75%;
   width: 100%; }
-
-.webq-vg-vidthumb {
-  width: 100%;
-  height: auto; }
 
 .webq-vg-item {
   padding: 10px; }
@@ -137,6 +137,21 @@
 .webq-vg-question-sm {
   height: 90px;
   overflow: hidden; }
+
+.webq-vg-paging {
+  float: left;
+  clear: both;
+  width: 100%;
+  padding: 10px;
+  background-color: #efefef; }
+
+.webq-vg-page-prev {
+  float: left;
+  width: 40px; }
+
+.webq-vg-page-next {
+  float: right;
+  width: 40px; }
 
 @media (min-width: 475px) {
   .webq-vg-item {
