@@ -2,7 +2,7 @@
   box-sizing: border-box;
 }
 #webq-vg-top {
-  background-color: #efefef;
+  background-color: $grey1;
   padding: 20px 5px;
 }
 .webq-vg-phy, .webq-vg-player {
@@ -11,7 +11,7 @@
 }
 .webq-vg-phy {
   text-align: center;
-  border-bottom: 1px solid #aaa;
+  border-bottom: 1px solid $grey2;
   h3,h4 {
     font-weight: normal;
   }
@@ -124,8 +124,10 @@
   display: block;
   width: 100%;
   height: auto;
+  border-left: 1px solid $grey1;
+  border-right: 1px solid $grey1;
 }
-.webq-vg-thumbwrap {
+.webq-vg-thumb {
   position: relative;
   height: 0;
   overflow: hidden;
@@ -134,21 +136,37 @@
   padding-bottom: 360/480 * 100%;
   width: 100%;
 }
-.webq-vg-vidthumb {
-  width: 100%;
-  height: auto;
-}
 .webq-vg-item {
   padding: 10px;
 }
 .webq-vg-item-inner {
   min-height: 0px;
-  border: 1px solid #ddd;
+  border: 1px solid $grey1;
   padding: 10px;
 }
 .webq-vg-question-sm {
-  height: 90px;
+  height: 85px;
   overflow: hidden;
+  margin: 10px 0 0 0;
+  padding: 0 5px;
+  &::before {
+    content: 'Q: ';
+    font-weight: 700;
+    font-size: 16px;
+  }
+}
+.webq-vg-paging {
+  float: left;
+  clear: both;
+  width: 100%;
+  padding: 10px;
+  background-color: $grey1;
+}
+.webq-vg-page-prev {
+  float: left;
+}
+.webq-vg-page-next {
+  float: right;
 }
 @media (min-width: 475px) {
   .webq-vg-item {
@@ -173,7 +191,7 @@
   .webq-vg-player {
     float: left;
     width: 75%;
-    border-left: 1px solid #aaa;
+    border-left: 1px solid $grey2;
   }
 }
 @media (min-width: 768px) {
