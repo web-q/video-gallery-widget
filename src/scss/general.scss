@@ -74,12 +74,10 @@
   }
   .webq-vg-play-cicle {
     stroke: #FFF;
-    stroke-width: 0.9;
+    stroke-width: 1.4;
     stroke-linecap: butt;
-    stroke-dasharray: 360;
-    stroke-dashoffset: 200;
     fill: none;
-    transition: all 0.3s ease-in;
+    transition: all 0.3s cubic-bezier(0.81, -0.92, 0.59, 1.81);
   }
   .webq-vg-play-arrow {
     font-family: 'fontawesomer';
@@ -90,10 +88,9 @@
   }
   &:hover {
     .webq-vg-play-cicle {
-      transform: rotate(-200deg);
-      stroke-dashoffset: 360;
+      transform: scale(1.2);
       opacity: 0;
-      transition: all 0.3s ease-in;
+      transition: all 0.3s cubic-bezier(0.81, -0.92, 0.59, 1.81);
     }
     .webq-vg-play-arrow {
       transform: scale(1.2);
@@ -112,9 +109,6 @@
 .webq-vg-player-overlay {
   .webq-vg-play {
     margin-top: 5%;
-  }
-  .webq-vg-play-cicle {
-    stroke-width: 0.5;
   }
 }
 .webq-vg-listing {
@@ -182,6 +176,11 @@
     display: block;
     width: 50%;
     display: inline-block;
+  }
+  .webq-vg-player-overlay {
+    .webq-vg-play-cicle {
+      stroke-width: 0.9;
+    }
   }
 }
 @media (min-width: 675px) {
