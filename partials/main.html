@@ -1,0 +1,44 @@
+<div class="panel panel-info" id="mainpanel">
+  <div class="panel-heading">
+    <h2 class="panel-title">My 39 Weeks</h2>
+  </div>
+  <div class="my39panel">
+    <form class="form col-sm-8 col-sm-offset-2" id="my39weeks-form">
+      <h3 class="text-center">
+        When is your due date?
+      </h3>
+      <div class="form-group">
+        <datepicker date-format="MMMM d, y" selector="input-duedate" button-prev="<i class='icon-left-open'></i>" button-next="<i class='icon-right-open'></i>">
+                <input ng-model="main.dateDue" type="text" class="input-duedate form-control text-center" placeholder="Select a date" data-rule-required="true"/>
+        </datepicker>
+        <div ng-if="main.validWeek" class="my39progress-main">
+          <h3>Your Progress</h3>
+          <div class="my39progress-main-text">
+            {{main.week}} weeks <span ng-if="main.daysIntoWeek != 0"><br />{{main.daysIntoWeek}} days</span>
+          </div>
+          <div class="my39progress-wrapper">
+            <div
+              round-progress
+              max="273"
+              current="main.days"
+              color="#508bc5"
+              bgcolor="#f5f5f5"
+              radius="100"
+              stroke="20"
+              semi="false"
+              rounded="false"
+              clockwise="true"
+              responsive="true"
+              duration="800"
+              animation="easeInOutQuart"
+              animation-delay="0"></div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="panel-footer clearfix">
+    <a href="#/week/{{main.week}}/{{main.day}}" ng-click="main.slide('slidepage-l')" ng-show="main.validWeek" class="btn btn-default pull-right">Next<i class="icon-chevron-right"></i></a>
+    <button type="button" class="btn btn-default pull-right" disabled="disabled" ng-show="!main.validWeek">Next<i class="icon-chevron-right"></i></button>
+  </div>
+</div>

@@ -1,0 +1,50 @@
+<div class="panel panel-info" id="detailpanel">
+  <div class="panel-heading">
+    <h2 class="panel-title">My 39 Weeks</h2>
+  </div>
+  <div class="my39panel">
+    <div ng-if="detail.dashboard" class="my39dash">
+      <div class="my39countdown">
+        <h3>Countdown</h3>
+        <div class="my39countdown-text">
+          {{273 - detail.days}} days<br />to go!
+        </div>
+        <div class="my39progress-wrapper">
+          <div
+            round-progress
+            max="273"
+            current="detail.days"
+            color="#508bc5"
+            bgcolor="#f5f5f5"
+            radius="100"
+            stroke="20"
+            semi="false"
+            rounded="false"
+            clockwise="true"
+            responsive="true"
+            duration="800"
+            animation="easeInOutQuart"
+            animation-delay="0"></div>
+        </div>
+      </div>
+      <div class="my39duesection">
+        <div class="my39duedate-wrapper">
+          <h3>Due Date</h3>
+          <div class="my39datedue">{{detail.dueDate}}</div>
+          <div class="my39monthdue">{{detail.dueMonth}}</div>
+        </div>
+      </div>
+    </div>
+    <div class="my39body">
+      <h3>{{detail.day}}, Week {{detail.tip.week}}</h3>
+      <h4 ng-bind-html="detail.renderHTML(detail.tip.task)"></h4>
+    </div>
+  </div>
+  <div class="panel-footer clearfix">
+    <a href="#/" ng-click="detail.slide('slidepage-r')" class="btn btn-default pull-left"> <i class="icon-chevron-left"></i>Back</a>
+    <span class="pull-right">
+      <a href="#/why/{{detail.tip.week}}/{{detail.tip.day}}" ng-click="detail.slide('slidepage-u')" class="btn btn-info"> <i class="icon-chevron-left"></i>Why Do This</a>
+      <a href="#/" ng-click="detail.slide('slidepage-l')" class="btn btn-primary"> <i class="icon-chevron-left"></i>X</a>
+    </span>
+  </div>
+</div>
