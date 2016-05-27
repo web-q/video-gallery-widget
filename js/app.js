@@ -1,7 +1,5 @@
 'use strict';
 
-var webqGalleryPlaylistId = 'PLpEUxmlKGIdkkbHbf9aiuhj7_fJ7XIMMt';
-
 var webqMapVidData = function(text){
   var dat = {};
   var lines = text.match(/[^\r\n]+/g);
@@ -35,7 +33,7 @@ videoGalleryWidget.config(['$sceDelegateProvider', function($sceDelegateProvider
 videoGalleryWidget.config(['$routeProvider', function($routeProvider) {
   $routeProvider.
   when('/', {
-    templateUrl: 'partials/videos.html',
+    templateUrl: '//web-q-hospital.prod.ehc.com/global/hut/widgets/video-gallery-widget/v1.0/partials/videos.html',
     controller: 'galleryCtrl',
     controllerAs: 'gallery',
     resolve: {
@@ -45,7 +43,7 @@ videoGalleryWidget.config(['$routeProvider', function($routeProvider) {
     }
   }).
   when('/v/:videoId', {
-    templateUrl: 'partials/videos.html',
+    templateUrl: '//web-q-hospital.prod.ehc.com/global/hut/widgets/video-gallery-widget/v1.0/partials/videos.html',
     controller: 'galleryCtrl',
     controllerAs: 'gallery',
     resolve: {
